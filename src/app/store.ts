@@ -1,10 +1,17 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import movieReducer from '../features/movie/movie-slice';
+import {
+  loadingBarMiddleware,
+  loadingBarReducer,
+} from 'react-redux-loading-bar';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    movie: movieReducer,
+    loadingBar: loadingBarReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(loadingBarMiddleware()),
 });
 
 export type AppDispatch = typeof store.dispatch;
