@@ -67,7 +67,7 @@ export default function HomePage(props: Props) {
             <CaretCircleLeft size={36} />
           </button>
         )}
-        <span>{page} Page</span>
+        <span className='font-bold'>{page} Page</span>
         <button onClick={onIncrease}>
           <CaretCircleRight size={36} />
         </button>

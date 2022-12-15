@@ -43,9 +43,11 @@ export default function DetailPage() {
           </h2>
           <div className='flex items-start gap-8 px-10 w-full justify-center mb-11'>
             <img
-              width={210}
-              height={300}
-              src={movie.Poster ? movie.Poster : process.env.REACT_APP_URL_404}
+              src={
+                movie.Poster
+                  ? movie.Poster
+                  : 'https://e7.pngegg.com/pngimages/829/733/png-clipart-logo-brand-product-trademark-font-not-found-logo-brand.png'
+              }
               loading='lazy'
               className='object-containt h-[300px] w-[211px]'
             />
