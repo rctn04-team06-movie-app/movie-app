@@ -18,7 +18,7 @@ const initialState: MovieState = {
 
 export const movieListAsync = createAsyncThunk(
   'movies/fetchMovieList',
-  async (input: { s: string }, { dispatch }) => {
+  async (input: { s: string; page: number }, { dispatch }) => {
     dispatch(showLoading());
     const result = await fetchMovieSearch(input);
     dispatch(hideLoading());
@@ -62,7 +62,7 @@ export const movieSlice = createSlice({
       })
       .addCase(movieAsync.fulfilled, (state, action) => {
         // dispatch(hideLoading());
-        state.status = 'idle';
+        state.status = action.payload.Response === 'False' ? 'failed' : 'idle';
         state.movie = action.payload;
       })
       .addCase(movieAsync.rejected, (state) => {

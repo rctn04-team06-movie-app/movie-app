@@ -23,14 +23,22 @@ export default function MovieCard(props: Props) {
   }, [imdbID, navigate]);
 
   return (
-    <a onClick={onClick}>
-      <div>
-        <h2>{Title}</h2>
-        <img src={Poster} loading='lazy' alt={Title} />
-        <p>
-          {Year}, {Type}
-        </p>
-      </div>
+    <a
+      onClick={onClick}
+      className='shadow-lg hover:shadow-sm cursor-pointer w-[205px] gap-2 flex flex-col border-black rounded-3xl border-2 dark:border-slate-600 '
+    >
+      <img
+        src={Poster}
+        className='h-[300px] object-cover rounded-tl-3xl rounded-tr-3xl '
+        loading='lazy'
+        alt={Title}
+      />
+      <p className='text-center whitespace-nowrap overflow-hidden text-ellipsis px-3'>
+        {Title}
+      </p>
+      <p className='text-center dark:text-slate-400 '>
+        {Year}, {Type}
+      </p>
     </a>
   );
 }

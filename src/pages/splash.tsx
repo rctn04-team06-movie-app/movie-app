@@ -11,8 +11,11 @@ export default function SplashPage() {
   }, [navigate]);
 
   return (
-    <>
+    <div className='w-fit mx-auto h-[100vh]'>
       <Player src={movie} autoplay loop />
-    </>
+      <p className='text-center text-3xl font-bold text-slate-500 dark:text-slate-200'>
+        Movie App
+      </p>
+    </div>
   );
 }

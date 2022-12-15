@@ -1,7 +1,7 @@
 import qs from 'query-string';
 import { MovieLiteModel, MovieModel } from './model';
 
-export async function fetchMovieSearch(input: { s: string }) {
+export async function fetchMovieSearch(input: { s: string; page: number }) {
   const response = await fetch(
     `${process.env.REACT_APP_API_URL}&${qs.stringify(input!)}`,
   );
@@ -9,6 +9,7 @@ export async function fetchMovieSearch(input: { s: string }) {
   const result = await response.json();
   return result as {
     Search: MovieLiteModel[];
+    Response: string;
   };
 }
 

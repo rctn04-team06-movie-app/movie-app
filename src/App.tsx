@@ -7,18 +7,21 @@ import SplashPage from './pages/splash';
 import NotFoundPage from './pages/not-found';
 import LoadingBar from 'react-redux-loading-bar';
 import './input.css';
+import useTextInput from './hooks/use-text-input';
 
 function App() {
+  const [page, setPage] = React.useState(1);
+  const [title, setTitle] = useTextInput('');
   return (
-    <div>
-      <h1 className='text-3xl font-bold underline dark:bg-black dark:text-white'>
-        Hello world!
-      </h1>
+    <div className='dark:bg-slate-800 dark:text-white'>
       <LoadingBar />
-      <Navigation />
+      <Navigation title={title} setTitle={setTitle} setPage={setPage} />
       <Routes>
         <Route path='/' element={<SplashPage />} />
-        <Route path='/home' element={<HomePage />} />
+        <Route
+          path='/home'
+          element={<HomePage title={title} page={page} setPage={setPage} />}
+        />
         <Route path='/:id' element={<DetailPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
