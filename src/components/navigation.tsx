@@ -35,7 +35,7 @@ export default function Navigation(props: Props) {
   );
 
   return (
-    <header className='flex flex-row items-center px-8 py-4 '>
+    <header className='flex flex-row items-center px-8 py-4 sticky top-0 bg-white dark:bg-slate-800 '>
       <Link to='/home' className='flex-1 text-2xl font-extrabold'>
         Movie App
       </Link>
